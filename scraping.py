@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from langdetect import detect, LangDetectException
 
 custom_headers = {
     "Accept-language": "en-GB,en;q=0.9",
@@ -20,10 +21,17 @@ def get_soup(url):
     soup = BeautifulSoup(response.text, "lxml")
     return soup
 
+def is_english(text):
+    try:
+        return detect(text) == 'en'
+    except LangDetectException:
+        return False
+
 def get_reviews(soup):
     review_elements = soup.select("div.review")
 
     scraped_reviews = []
+    review_texts = []
 
     for review in review_elements:
         r_author_element = review.select_one("span.a-profile-name")
@@ -45,17 +53,25 @@ def get_reviews(soup):
         r_verified_element = review.select_one("span.a-size-mini")
         r_verified = r_verified_element.text if r_verified_element else None
 
+        if r_content and is_english(r_content):  # Ensure there is review content and it's in English
+            review_texts.append(r_content.strip())
 
-        r = {
-            "author": r_author,
-            "rating": r_rating,
-            "title": r_title,
-            "content": r_content,
-            "location_and_date": r_date,
-            "verified": r_verified
-        }
+            r = {
+                "author": r_author,
+                "rating": r_rating,
+                "title": r_title,
+                "content": r_content,
+                "location_and_date": r_date,
+                "verified": r_verified
+            }
 
-        scraped_reviews.append(r)
+            scraped_reviews.append(r)
+
+    # Write the review texts to scraped.txt
+    with open("scraped.txt", "w", encoding="utf-8") as file:
+        for text in review_texts:
+            
+            file.write("\""+ text.replace("\nRead more", "") + "\"\n")
 
     return scraped_reviews
 
@@ -65,7 +81,7 @@ def main():
     data = get_reviews(soup)
     df = pd.DataFrame(data=data)
 
-    df.to_csv("amz.csv")
+    df.to_csv("amz.csv", index=False)
 
 if __name__ == '__main__':
     main()

@@ -63,7 +63,7 @@ def get_reviews(soup):
     return scraped_reviews
 
 def main():
-    search_url = "https://amzn.in/d/dCsAlRm"
+    search_url = "https://amzn.in/d/dnUPZWg"
     soup = get_soup(search_url)
     data = get_reviews(soup)
     df = pd.DataFrame(data=data)

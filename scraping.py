@@ -45,17 +45,14 @@ def get_reviews(soup):
         r_verified_element = review.select_one("span.a-size-mini")
         r_verified = r_verified_element.text if r_verified_element else None
 
-        r_image_element = review.select_one("img.review-image-tile")
-        r_image = r_image_element.attrs["src"] if r_image_element else None
 
         r = {
             "author": r_author,
             "rating": r_rating,
             "title": r_title,
             "content": r_content,
-            "date": r_date,
-            "verified": r_verified,
-            "image_url": r_image
+            "location": r_date,
+            "verified": r_verified
         }
 
         scraped_reviews.append(r)

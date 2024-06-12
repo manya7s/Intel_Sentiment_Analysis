@@ -51,7 +51,7 @@ def get_reviews(soup):
             "rating": r_rating,
             "title": r_title,
             "content": r_content,
-            "location": r_date,
+            "location_and_date": r_date,
             "verified": r_verified
         }
 

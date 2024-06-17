@@ -1,23 +1,23 @@
 import tensorflow as tf
-import tensorflow_hub as hub
-import tensorflow_text as text
 import os
-#USING CACHED MODEL
-os.environ['TFHUB_CACHE_DIR'] = './tfhub_cache'
 
-model_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
-print("Loading model...")
-model = hub.load(model_url)
+save_dir = './saved_model'
+print("Loading model from saved directory...")
+model = tf.saved_model.load(save_dir)
 print("Model loaded successfully.")
-
+#output key
+signatures = model.signatures["serving_default"]
 
 def classify_review(review):
-    embeddings = model([review])
+    infer = model.signatures["serving_default"]
+    embeddings = infer(tf.constant([review]))
+    
+    embedding_values = embeddings['output_0']
 
     positive_words = ["good", "great", "excellent", "amazing", "love", "fantastic"]
     negative_words = ["bad", "terrible", "awful", "hate", "not", "worst", "poor"]
 
-    sentiment_score = tf.reduce_mean(embeddings, axis=1).numpy()[0]
+    sentiment_score = tf.reduce_mean(embedding_values, axis=1).numpy()[0]
 
     if "not" in review.lower() and sentiment_score < 0.5:
         sentiment_score = 1 - sentiment_score
@@ -29,7 +29,6 @@ def classify_review(review):
     else:
         return "Neutral"
 
-#taking review
 review = input("Enter review: ")
 result = classify_review(review)
 print(f"The review is: {result}")

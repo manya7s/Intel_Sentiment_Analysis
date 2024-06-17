@@ -12,7 +12,6 @@ print("Model loaded successfully.")
 
 
 def classify_review(review):
-
     embeddings = model([review])
 
     positive_words = ["good", "great", "excellent", "amazing", "love", "fantastic"]

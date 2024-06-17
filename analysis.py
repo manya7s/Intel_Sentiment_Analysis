@@ -12,16 +12,14 @@ print("Loading model...")
 model = hub.load(model_url)
 print("Model loaded successfully.")
 
-# Function to classify the review as good or bad
-def classify_review(review):
-    # Preprocess the review
-    embeddings = model([review])
 
-    # Dummy classifier for simplicity (replace with a real classifier for a production system)
+def classify_review(review):
+    #preprocess
+    embeddings = model([review])
     positive_words = ["good", "great", "excellent", "amazing", "love", "fantastic"]
     negative_words = ["bad", "terrible", "awful", "hate", "worst", "poor"]
 
-    # Simple heuristic: check for the presence of positive or negative words
+    #check for the presence of positive or negative words
     review_lower = review.lower()
     if any(word in review_lower for word in positive_words):
         return "Good"
@@ -30,7 +28,8 @@ def classify_review(review):
     else:
         return "Neutral"
 
-# Example usage
+
+
 review = input("Enter review: ")
 result = classify_review(review)
 print(f"The review is: {result}")

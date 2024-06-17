@@ -2,7 +2,7 @@ import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow_text as text
 import os
-
+#USING CACHED MODEL
 os.environ['TFHUB_CACHE_DIR'] = './tfhub_cache'
 
 model_url = "https://tfhub.dev/google/universal-sentence-encoder/4"

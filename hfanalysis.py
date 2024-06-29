@@ -1,4 +1,5 @@
 from transformers import pipeline
+import streamlit
 import os
 
 # Load the pre-trained sentiment-analysis pipeline

@@ -4,12 +4,11 @@ import os
 # Load the pre-trained sentiment-analysis pipeline
 sentiment_pipeline = pipeline("sentiment-analysis")
 
+with open ("scraped.txt", "r") as file:
+    reviews = file.read().split("\n")
+
 # Example user reviews
-reviews = [
-    "The product was excellent and exceeded my expectations!",
-    "The product was terrible and didn't work at all.",
-    "The product is okay, but nothing special."
-]
+print(reviews)
 
 # Classify each review
 results = sentiment_pipeline(reviews)

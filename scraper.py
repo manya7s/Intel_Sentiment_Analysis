@@ -54,13 +54,14 @@ def get_reviews(soup):
         r_verified = r_verified_element.text if r_verified_element else None
 
         if r_content and is_english(r_content):  # Ensure there is review content and it's in English
-            review_texts.append(r_content.strip())
+            truncated_content = r_content.strip()[:705]  # Take only the first 705 characters
+            review_texts.append(truncated_content)
 
             r = {
                 "author": r_author,
                 "rating": r_rating,
                 "title": r_title,
-                "content": r_content,
+                "content": truncated_content,  # Use truncated content
                 "location_and_date": r_date,
                 "verified": r_verified
             }
@@ -70,8 +71,7 @@ def get_reviews(soup):
     # Write the review texts to scraped.txt
     with open("scraped.txt", "w", encoding="utf-8") as file:
         for text in review_texts:
-            
-            file.write("\""+ text.replace("\nRead more", "") + "\"\n")
+            file.write(text.replace("\nRead more", "") + "\n")
 
     return scraped_reviews
 

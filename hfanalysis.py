@@ -27,7 +27,7 @@ class Analysis:
 
         labels = ['Positive', 'Negative']
         sizes = [positive_count, negative_count]
-        colors = ['#66b3ff', '#ff9999']
+        colors = ['#A8D5BA', '#F7A1A1']
 
         plt.figure(figsize=(8, 6))
         plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)

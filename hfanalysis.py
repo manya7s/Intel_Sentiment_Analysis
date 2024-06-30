@@ -32,11 +32,11 @@ class Analysis:
         plt.figure(figsize=(8, 6))
         plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
         plt.axis('equal')
-        plt.title('Distribution of Sentiments in Reviews')
+        plt.title('Product Sentiment')
         plt.show()
 
 # Example usage:
 if __name__ == "__main__":
     analyzer = Analysis()
-    source = "i9.txt"
+    source = "i5.txt"
     analyzer.analyze_reviews(f"data/{source}")

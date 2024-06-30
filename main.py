@@ -1,6 +1,6 @@
 # option
 print("Navigator")
-option = int(input("Review by:\n1. Processor\n2. Brand\n3. Functionality\n4. Laptops\n5. Desktops\n-> "))
+option = int(input("Review by:\n1. Processor\n2. Brand\n3. Laptops\n4. Desktops\n-> "))
 
 match option:
     case 1:
@@ -31,16 +31,6 @@ match option:
             case _:
                 print("no data")
     case 3: 
-        option = int(input("Choose functionality:\n1. Gaming\n2. General\n-> "))
-        if option == 1:
-            print("functionality gaming")
-            #includes gaming laptops and gaming desktops
-        elif option == 2:
-            print("functionality general")
-            #includes general laptops and general desktops
-        else:
-            print("no data")
-    case 4:
         option = int(input("Choose brand:\n1. acer\n2. msi\n3. asus\n4. dell\n5. hp\n-> "))
         match option:
             case 1:
@@ -55,7 +45,7 @@ match option:
                 print("laptop hp")
             case _:
                 print("no data")
-    case 5:
+    case 4:
         option = int(input("Choose brand:\n1. lenovo\n2. hp\n3. acer\n4. dell\n5. asus\n6. msi\n-> "))
         match option:
             case 1:

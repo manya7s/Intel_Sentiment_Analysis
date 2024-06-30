@@ -35,7 +35,6 @@ class Analysis:
         plt.title('Product Sentiment')
         plt.show()
 
-# Example usage:
 if __name__ == "__main__":
     analyzer = Analysis()
     source = "i5.txt"

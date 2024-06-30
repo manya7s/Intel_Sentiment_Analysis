@@ -12,7 +12,8 @@ reviews = [review.strip('"') for review in reviews if review.strip()]
 # Classify each review
 results = sentiment_pipeline(reviews)
 
-# Display the results
+
+#display
 os.system("clear")  # os.system("cls") for windows
 
 positive_count = 0

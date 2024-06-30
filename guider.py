@@ -1,8 +1,8 @@
-processors = ["i9", "i7", "i5"]
-processors_type = ["gaming", "desktop"]
+processors = ["i9.txt", "i7.txt", "i5.txt"]
+processors_type = ["gaming.txt", "desktop.txt"]
 
-laptops = ["acer", "msi", "asus","hp", "dell"]
+laptops = ["acer.txt", "msi.txt", "asus.txt","hp.txt", "dell.txt"]
 
-desktops = ["lenovo", "hp", "acer", "dell", "asus", "msi"]
+desktops = ["lenovo.txt", "hp.txt", "acer.txt", "dell.txt", "asus.txt", "msi.txt"]
 
-brands = ["lenovo", "msi", "acer", "hp", "asus", "dell"]
+brands = ["lenovo.txt", "msi.txt", "acer.txt", "hp.txt", "asus.txt", "dell.txt"]

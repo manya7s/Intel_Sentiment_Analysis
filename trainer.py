@@ -2,7 +2,7 @@ import pandas as pd
 from datasets import load_dataset, Dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
 
-# Load and preprocess your dataset
+# Load and preprocess dataset
 data = {'text': ["I love this!", "I hate this!"], 'label': [1, 0]}
 df = pd.DataFrame(data)
 dataset = Dataset.from_pandas(df)

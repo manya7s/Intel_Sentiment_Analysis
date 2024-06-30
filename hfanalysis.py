@@ -38,4 +38,5 @@ class Analysis:
 # Example usage:
 if __name__ == "__main__":
     analyzer = Analysis()
-    analyzer.analyze_reviews("scraped.txt")
+    source = "i9.txt"
+    analyzer.analyze_reviews(f"data/{source}")

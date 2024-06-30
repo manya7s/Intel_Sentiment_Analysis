@@ -6,9 +6,7 @@ sentiment_pipeline = pipeline("sentiment-analysis")
 
 with open ("scraped.txt", "r") as file:
     reviews = file.read().split("\n")
-
-# Example user reviews
-print(reviews)
+reviews.pop()
 
 # Classify each review
 results = sentiment_pipeline(reviews)

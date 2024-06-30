@@ -52,7 +52,6 @@ class Analysis:
         plt.title('Product Sentiment', color='#708090')
         st.pyplot(fig)
 
-
 def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", ["Home", "Processor", "Brand", "Laptops", "Desktops", "Developer Stats"])

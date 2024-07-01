@@ -169,7 +169,7 @@ def main():
         st.write("Product sentiment analysis of Intel products\n")
         st.image("accuracy.png", caption="Model accuracy", use_column_width=True)
         st.markdown("""
-        - **Accuracy of Analysis**: 89%-92%
+        - **Accuracy of Analysis**: 86%-92%
         - **Model Type**: Pretrained Transformer Model
         - **Architecture**: DistilBERT (Bidirectional Encoder Representations from Transformers
         - **Model**: distilbert-base-uncased-finetuned-sst-2-english

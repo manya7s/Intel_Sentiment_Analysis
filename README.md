@@ -6,10 +6,15 @@ It implements a basic web scraper to extract the latest reviews, which are used 
 
 The required dependencies or packages can be installed by running the command:
 
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
 
-The code is run on localhost as a web application contained in `main.py` which can be run using the command obtained on running the file, similar to `streamlit run /home/user/airborne/main.py` 
+The code is run on localhost as a web application contained in `main.py` which can be run using the command obtained on running the file, similar to:
+```
+streamlit run /home/user/airborne/main.py
+``` 
 
 
 
